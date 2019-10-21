@@ -8,22 +8,23 @@ import { EditComponent } from './components/edit/edit.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TodosService } from './todos.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CreateComponent,
-    IndexComponent,
-    EditComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SlimLoadingBarModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        CreateComponent,
+        IndexComponent,
+        EditComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SlimLoadingBarModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
+    providers: [ TodosService ],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }
