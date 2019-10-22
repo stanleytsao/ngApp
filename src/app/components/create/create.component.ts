@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { TodosService } from '../../todos.service';
 
 @Component({
   selector: 'app-create',
@@ -9,7 +10,7 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 export class CreateComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private ps: TodosService) {
     this.createForm();
   }
 
@@ -19,6 +20,10 @@ export class CreateComponent implements OnInit {
       TodoDescription: ['', Validators.required ],
       DueDate: ['', Validators.required ]
     });
+  }
+
+  createTodo(Todo, TodoDescription, DueDate) {
+    this.ps.createTodo(Todo, TodoDescription, DueDate);
   }
 
   ngOnInit() {

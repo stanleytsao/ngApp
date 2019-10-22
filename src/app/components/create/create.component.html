@@ -1,46 +1,45 @@
 <div class="card">
-  <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
-      <div class="form-group">
-        <label class="col-md-4">Todo</label>
-        <input type="text" class="form-control" 
-            formControlName="Todo" 
-            #Todo />
-      </div>
-      <div *ngIf="angForm.controls['Todo'].invalid && (angForm.controls['Todo'].dirty || angForm.controls['Todo'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['Todo'].errors.required">
-            Todo is required.
+    <div class="card-body">
+        <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+            <label class="col-md-4">Todo</label>
+            <input type="text" class="form-control" 
+                formControlName="Todo" 
+                #Todo />
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">Todo Description</label>
-        <textarea class="form-control" rows = 7 cols = "5"
-            formControlName="TodoDescription" 
-            #TodoDescription></textarea>
-      </div>
-      <div *ngIf="angForm.controls['TodoDescription'].invalid && (angForm.controls['TodoDescription'].dirty || angForm.controls['TodoDescription'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['TodoDescription'].errors.required">
-            Todo Description is required.
+        <div *ngIf="angForm.controls['Todo'].invalid && (angForm.controls['Todo'].dirty || angForm.controls['Todo'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['Todo'].errors.required">
+                Todo is required.
+            </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">Due Date</label>
-        <input type="text" class="form-control" 
-            formControlName="DueDate" 
-            #DueDate
-        />
-      </div>
-      <div *ngIf="angForm.controls['DueDate'].invalid && (angForm.controls['DueDate'].dirty || angForm.controls['DueDate'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['DueDate'].errors.required">
-            Due Date is required.
+        <div class="form-group">
+            <label class="col-md-4">Todo Description</label>
+            <textarea class="form-control" rows = 7 cols = "5"
+                formControlName="TodoDescription" 
+                #TodoDescription></textarea>
         </div>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary"
-            [disabled]="angForm.pristine || angForm.invalid" >
-            Create Todo
-        </button>
-      </div>
-    </form>
-  </div>
+        <div *ngIf="angForm.controls['TodoDescription'].invalid && (angForm.controls['TodoDescription'].dirty || angForm.controls['TodoDescription'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['TodoDescription'].errors.required">
+                Todo Description is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Due Date</label>
+            <input type="text" class="form-control" 
+                formControlName="DueDate" 
+                #DueDate
+            />
+        </div>
+        <div *ngIf="angForm.controls['DueDate'].invalid && (angForm.controls['DueDate'].dirty || angForm.controls['DueDate'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['DueDate'].errors.required">
+                Due Date is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <button (click) = "createTodo(Todo.value, TodoDescription.value, DueDate.value)" type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" >
+                Create Todo
+            </button>
+        </div>
+        </form>
+    </div>
 </div>
