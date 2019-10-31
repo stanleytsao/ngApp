@@ -20,4 +20,10 @@ export class TodosService {
       this.http.post(`${this.uri}/create`, obj)
           .subscribe(res => console.log('Done'));
     }
+
+    getTodos() {
+      return this
+             .http
+             .get(`${this.uri}`);
+    }
 }
