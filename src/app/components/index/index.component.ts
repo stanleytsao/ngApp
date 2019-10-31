@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Todo from '../Todo';
+import { TodosService } from '../todos.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  todos: Todo[];
+  constructor(private ps: TodosService) { }
 
   ngOnInit() {
+    this.ps
+      .getTodos()
+      .subscribe((data: Todo[]) => {
+        this.todos = data;
+    });
   }
 
 }
