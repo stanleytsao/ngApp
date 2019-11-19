@@ -1,4 +1,5 @@
 # Stanley's Todo App
+MEAN stack project
 
 ## NgApp
 
